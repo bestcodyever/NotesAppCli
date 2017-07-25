@@ -1,0 +1,6 @@
+.bigDiv {
+  display: flex;
+  justify-content: center;
+  position: center;
+  margin-top: 8vh;
+}
