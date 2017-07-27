@@ -1,26 +1,30 @@
 $(document).ready(() => {})
-const url = 'https://tranquil-tundra-87782.herokuapp.com/notes'
+const url = 'https://tranquil-tundra-87782.herokuapp.com/notes/'
+
 $.get(url, function(cardsData) {
   makeCards(cardsData)
 })
 
 $('#addNote').click(function() {
   sendPostRequest()
+  $('').modal('toggle')
 })
 $('#editNote').click(function() {
+  let editId = $('.noteId').val()
+  $(`#card${editId}`).remove()
   sendPutRequest()
+  $('#modal').modal('toggle')
 })
 
 $('.card-group').click(function(event) {
-
   const destroy = $(event.target).attr('data-id')
   $.ajax({
-    url: url + '/' + destroy,
+    url: url + destroy,
     type: 'DELETE',
     success: function(result) {
       // Do something with the result
-      $(`#card${destroy}`).fadeOut()
       $(`#span${destroy}`).fadeOut()
+      $(`#card${destroy}`).fadeOut()
     }
   })
 })
@@ -57,7 +61,7 @@ function sendPostRequest(event) {
   }
   $.post(url, newPost)
     .then((resPost) => {
-      $.get(url + '/' + resPost, function(cardsData) {
+      $.get(url + resPost, function(cardsData) {
         $('.card-group').append(
           `<div class="card card-outline-warning mb-3 text-center" id="card${cardsData.id}">
           <div class="card-block" style="height: 40vh;">
@@ -75,6 +79,7 @@ function sendPostRequest(event) {
       })
     })
 }
+
 function sendPutRequest(event) {
   let editId = $('.noteId').val()
   let recipientFormPut = $('.recipientForm2').val()
@@ -87,16 +92,28 @@ function sendPutRequest(event) {
     date: dateFormPut,
     priority: priorityFormPut
   }
-  console.log(editId);
   $.ajax({
-    url: url + '/' + editId,
+    url: url + editId,
     type: 'PUT',
     data: newPost2,
     success: function(result) {
       // Do something with the result
-
+      $.get(url + result, function(cardsData) {
+        $('.card-group').append(
+          `<div class="card card-outline-warning mb-3 text-center" id="card${cardsData.id}">
+          <div class="card-block" style="height: 40vh;">
+          <div class ="top">
+          <button type="button" data-id="${cardsData.id}" class="close" id="delete${cardsData.id}"aria-label="Close">
+          <span aria-hidden="true" data-id="${cardsData.id}" id="span${cardsData.id}">&times;</span> </button>
+          </div>
+          <h4 class="card-title">${cardsData.fam}</h4>
+          <p class="card-text">${cardsData.note} </p>
+          <p class="card-text"><small class="text-muted">${cardsData.priority}<br>${cardsData.date.slice(0,10)}</p></small>
+          <div class="footerButton" style="">
+        </div>
+        </div>`
+        )
+      })
     }
   })
-
-
 }
