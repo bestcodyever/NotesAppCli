@@ -2,5 +2,16 @@
   display: flex;
   justify-content: center;
   position: center;
-  margin-top: 8vh;
+  margin-top: 2vh;
+  margin-bottom: 10vh;
+}
+.card-group {
+  margin-right: 2vw
+}
+.buttonDiv {
+}
+section {
+    margin-top: 8vh;
+  display: flex;
+  justify-content: center;
 }
