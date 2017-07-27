@@ -5,13 +5,43 @@
   margin-top: 2vh;
   margin-bottom: 10vh;
 }
-.card-group {
-  margin-right: 2vw
+.cards-group {
+display: flex;
+flex-flow: wrap;
+justify-content: center;
 }
 .buttonDiv {
 }
 section {
-    margin-top: 8vh;
+  margin-top: 8vh;
   display: flex;
   justify-content: center;
+}
+.card {
+  width: 15vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+#editButton {
+  border: none;
+  background-color: transparent;
+
+}
+#editButton img {
+  border: none;
+  background-color: transparent;
+  width: 1.5vw;
+  cursor: pointer;
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+.noteId {
+font-size: .6em;
+}
+.card-block {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
 }
