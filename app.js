@@ -1,5 +1,5 @@
 $(document).ready(() => {})
-const url = 'http://localhost:3000/notes'
+const url = 'https://tranquil-tundra-87782.herokuapp.com/notes'
 $.get(url, function(cardsData) {
   makeCards(cardsData)
 })
