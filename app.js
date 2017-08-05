@@ -1,6 +1,6 @@
 $(document).ready(() => {})
 const url = 'https://tranquil-tundra-87782.herokuapp.com/notes/'
-
+// const url = 'http://localhost:3000/notes/'
 $.get(url, function(cardsData) {
   makeCards(cardsData)
 })
@@ -22,7 +22,6 @@ $('.cards-group').click(function(event) {
     url: url + destroy,
     type: 'DELETE',
     success: function(result) {
-      // Do something with the result
       $(`#span${destroy}`).fadeOut()
       $(`#card${destroy}`).fadeOut()
     }
@@ -65,7 +64,6 @@ function sendPutRequest(event) {
     type: 'PUT',
     data: newPost2,
     success: function(result) {
-      // Do something with the result
       $.get(url + result, function(cardsData) {
         makeCard(cardsData)
       })

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Notes Fam</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-light bg-faded">
+    <a class="navbar-brand" href="#">
+    <img src="https://cdn2.iconfinder.com/data/icons/business-and-internet/512/Note-512.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    Notes FAM.
+  </a>
+  </nav>
+  <section>
+    <button type="button" class="btn btn-primary btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Note</button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="recipient-name" class="form-control-label">Recipient:</label>
+                <input type="text" class="recipientForm" id="recipient-name">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="form-control-label">Note:</label>
+                <textarea class="noteForm" rows="7"id="message-text"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="priority" class="priority">Priority:</label>
+                <select class="priorityForm" name="priority">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+                <br>
+                <label for="day" class="dateLabel">Date</label>
+                <input class="dateForm" name="day" type="date">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" id="addNote" class="btn btn-warning btn-primary" data-dismiss="modal">Add Note</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <button type="button" class="btn btn-primary btn-warning" data-toggle="modal" data-target="#exampleModal2" data-whatever="@mdo" style="margin-left:1vw;">Edit Note</button>
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit message</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="noteId" class="">Note ID:</label>
+                <input class="noteId" name="noteId" type="number">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="form-control-label">Recipient:</label>
+                <input type="text" class="recipientForm2" id="recipient-name">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="form-control-label">Note:</label>
+                <textarea class="noteForm2" rows="7"id="message-text"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="priority" class="priority">Priority:</label>
+                <select class="priorityForm2" name="priority">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+                <br>
+                <label for="day" class="dateLabel">Date</label>
+                <input class="dateForm2" name="day" type="date">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" id="editNote" class="btn btn-warning btn-primary" data-dismiss="modal">Edit Note</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <main class="bigDiv">
+    <div class="cards-group">
+
+    </div>
+  </main>
+
+
+  </div>
+  <footer>
+    <nav class="navbar fixed-bottom navbar-light bg-faded">
+      <a class="navbar-brand" href="#">© 2017 Notes FAM, Inc. All Rights Reserved</a>
+    </nav>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="app.js" charset="utf-8"></script>
+
+</body>
+
+</html>
